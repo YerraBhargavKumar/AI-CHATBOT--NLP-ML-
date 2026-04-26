@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #1e1e2f;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            height: 550px;
+            background: #2c2c3e;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            background: #4CAF50;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .chatbox {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 75%;
+        }
+
+        .user {
+            background: #4CAF50;
+            align-self: flex-end;
+        }
+
+        .bot {
+            background: #555;
+            align-self: flex-start;
+        }
+
+        .input-area {
+            display: flex;
+            padding: 10px;
+            background: #1e1e2f;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 10px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">🤖 AI Chatbot</div>
+
+    <div id="chatbox" class="chatbox"></div>
+
+    <div class="input-area">
+        <input id="userInput" type="text" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function sendMessage() {
+    let userText = document.getElementById("userInput").value;
+    if(userText.trim() === "") return;
+
+    let chatbox = document.getElementById("chatbox");
+
+    chatbox.innerHTML += `<div class="message user">${userText}</div>`;
+
+    fetch("/get", {
+        method: "POST",
+        body: new URLSearchParams({msg: userText})
+    })
+    .then(response => response.json())
+    .then(data => {
+        chatbox.innerHTML += `<div class="message bot">${data.response}</div>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+    });
+
+    document.getElementById("userInput").value = "";
+}
+
+// Enter key support
+document.getElementById("userInput")
+.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        sendMessage();
+    }
+});
+</script>
+
+</body>
+</html>

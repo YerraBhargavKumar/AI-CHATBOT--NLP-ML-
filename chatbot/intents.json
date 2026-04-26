@@ -1,0 +1,85 @@
+
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hello", "hi", "hey", "hey there", "good morning", "good evening", "yo"],
+      "responses": [
+        "Hello! 👋 How can I help you today?",
+        "Hi there! 😊 What would you like to know?",
+        "Hey! How can I assist you?"
+      ]
+    },
+    {
+      "tag": "how_are_you",
+      "patterns": ["how are you", "how are you doing", "are you fine"],
+      "responses": [
+        "I'm doing great! 😊 How about you?",
+        "I'm good! Thanks for asking.",
+        "All good here! What about you?"
+      ]
+    },
+    {
+      "tag": "user_feeling_good",
+      "patterns": ["i am good", "i am fine", "doing well", "feeling great"],
+      "responses": [
+        "That's great to hear! 😄",
+        "Awesome! Keep it up!",
+        "Nice! How can I help you further?"
+      ]
+    },
+    {
+      "tag": "user_feeling_bad",
+      "patterns": ["i am sad", "not good", "feeling bad", "i am tired"],
+      "responses": [
+        "I'm sorry to hear that 😔 Want to talk about it?",
+        "Hope things get better soon!",
+        "Take care of yourself 💙"
+      ]
+    },
+    {
+      "tag": "name",
+      "patterns": ["what is your name", "who are you", "your name"],
+      "responses": [
+        "I am your AI chatbot 🤖",
+        "You can call me ChatBot!",
+        "I'm your virtual assistant."
+      ]
+    },
+    {
+      "tag": "help",
+      "patterns": ["help", "what can you do", "how can you help me"],
+      "responses": [
+        "I can answer questions about AI, chat with you, and help you learn!",
+        "You can ask me about AI or just have a conversation 😊"
+      ]
+    },
+    {
+      "tag": "ai",
+      "patterns": ["what is ai", "define ai", "ai meaning", "tell me about ai"],
+      "responses": [
+        "AI stands for Artificial Intelligence — machines that mimic human thinking.",
+        "AI helps machines learn, reason, and solve problems like humans.",
+        "Artificial Intelligence enables computers to perform intelligent tasks."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "thanks a lot"],
+      "responses": [
+        "You're welcome! 😊",
+        "No problem!",
+        "Glad I could help!"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you", "later"],
+      "responses": [
+        "Goodbye! 👋",
+        "See you later!",
+        "Take care!"
+      ]
+    }
+  ]
+}
